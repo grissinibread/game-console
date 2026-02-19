@@ -1,0 +1,25 @@
+{
+  "name": "TurnBasedGameConsole",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.2.3",
+    "@types/prompt-sync": "^4.2.3",
+    "babel-jest": "^29.7.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.5.3"
+  },
+  "private": true,
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
