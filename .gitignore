@@ -11,5 +11,6 @@ yarn-error.log*
 .vscode/*
 
 .DS_Store
-.idea
+/.idea
 package-lock.json
+/dist

@@ -1,6 +1,12 @@
 {
   "name": "TurnBasedGameConsole",
   "version": "1.0.0",
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", {"targets": {"node": "current"}}],
+      "@babel/preset-typescript"
+    ]
+  },
   "description": "",
   "main": "dist/index.js",
   "type": "module",

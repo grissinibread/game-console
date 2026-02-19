@@ -1,30 +1,9 @@
-import promptSync from "prompt-sync";
+import { Player } from "./Player.ts";
+import PromptSync from "prompt-sync";
 
 type GameDifficulty = "EASY" | "NORMAL" | "HARD";
 
-class Player {
-    private hintWord: string = "";
-    private words: string[] = [];
-    wordsGuessed: number = 0;
-
-    getHintWord() {
-        return this.hintWord;
-    }
-
-    getWords() {
-        return this.words;
-    }
-
-    setHintWord(hintWord: string) {
-        this.hintWord = hintWord;
-    }
-
-    addWord(word: string) {
-        this.words.push(word);
-    }
-}
-
-class Game {
+export class Game {
     constructor(gameDifficulty: GameDifficulty) {
         if(gameDifficulty === "EASY") {
             this.numberOfWords = 3;
@@ -46,7 +25,7 @@ class Game {
     numberOfWords: number;
 
     setWords() {
-        let prompt = promptSync();
+        let prompt = PromptSync();
 
         console.log("-- Player One --")
 
@@ -150,7 +129,7 @@ class Game {
 
 console.clear();
 
-let prompt = promptSync();
+let prompt = PromptSync();
 console.log("Turn Based Game");
 console.log("Select Difficulty");
 console.log("(1) Easy");
