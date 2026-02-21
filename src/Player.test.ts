@@ -6,11 +6,11 @@ beforeEach(() => {
     player = new Player();
 })
 
-test("Words guessed should come out to 0 when player is initialized.", () => {
+test("The amount of words guessed should come out to 0 when player is initialized.", () => {
     expect(player.wordsGuessed).toBe(0);
 });
 
-test("Hint word should be an empty string when player is initialized.", () => {
+test("The hint word should be an empty string when player is initialized.", () => {
     expect(player.getHintWord()).toBe("");
 });
 
@@ -22,7 +22,7 @@ test("Should return the same hint word that is set.", () => {
     expect(player.getHintWord()).toBe(testWord);
 });
 
-test("An empty array should be returned when a player is initialized.", () => {
+test("An empty array of words should be returned when a player is initialized.", () => {
     expect(player.getWords()).toStrictEqual([]);
 });
 
