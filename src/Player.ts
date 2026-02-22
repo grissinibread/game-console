@@ -1,7 +1,7 @@
 export class Player {
     private hintWord: string = "";
     private words: string[] = [];
-    wordsGuessed: number = 0;
+    private wordsGuessed: number = 0;
 
     getHintWord() {
         return this.hintWord;
@@ -11,11 +11,19 @@ export class Player {
         return this.words;
     }
 
+    getWordsGuessed() {
+        return this.wordsGuessed;
+    }
+
     setHintWord(hintWord: string) {
         this.hintWord = hintWord;
     }
 
     addWord(word: string) {
         this.words.push(word);
+    }
+
+    guessedWordCorrectly() {
+        this.wordsGuessed++;
     }
 }

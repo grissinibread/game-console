@@ -7,7 +7,7 @@ beforeEach(() => {
 })
 
 test("The amount of words guessed should come out to 0 when player is initialized.", () => {
-    expect(player.wordsGuessed).toBe(0);
+    expect(player.getWordsGuessed()).toBe(0);
 });
 
 test("The hint word should be an empty string when player is initialized.", () => {
@@ -34,4 +34,12 @@ test("The same array placed in the player should be returned.", () => {
     }
 
     expect(player.getWords()).toStrictEqual(testWords);
+});
+
+test("If player guesses correctly, their words guessed should increment", () => {
+    let currentWordsGuessed = player.getWordsGuessed();
+
+    player.guessedWordCorrectly();
+
+    expect(currentWordsGuessed).toEqual(player.getWordsGuessed() - 1);
 });

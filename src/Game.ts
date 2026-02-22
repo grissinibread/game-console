@@ -54,8 +54,8 @@ export class Game {
     startGame() {
         this.setWords();
 
-        while(this.playerOne.wordsGuessed < this.numberOfWords &&
-        this.playerTwo.wordsGuessed < this.numberOfWords) {
+        while(this.playerOne.getWordsGuessed() < this.numberOfWords &&
+        this.playerTwo.getWordsGuessed() < this.numberOfWords) {
 
             let playerWords: string[];
 
@@ -70,7 +70,7 @@ export class Game {
             }
 
             for(let i = 0; i < this.numberOfWords; i++) {
-                if(i < this.currentPlayer.wordsGuessed) {
+                if(i < this.currentPlayer.getWordsGuessed()) {
                     console.log(playerWords[i]);
                 } else {
                     console.log(playerWords[i].substring(0, 1));
@@ -80,30 +80,30 @@ export class Game {
             let guess = prompt("Guess the next word: ");
 
             if(this.currentPlayer === this.playerOne) {
-                if (guess === this.playerTwo.getWords()[this.playerOne.wordsGuessed]) {
-                    this.guessedCorrectly(this.currentPlayer);
+                if (guess === this.playerTwo.getWords()[this.playerOne.getWordsGuessed()]) {
+                    this.currentPlayer.guessedWordCorrectly();
                     this.swapTurn();
 
                     console.log("Player One Words Guessed")
-                    console.log(this.playerOne.wordsGuessed);
+                    console.log(this.playerOne.getWordsGuessed());
                     console.log(this.numberOfWords);
                 }
             } else if(this.currentPlayer === this.playerTwo) {
-                if (guess === this.playerOne.getWords()[this.playerTwo.wordsGuessed]) {
-                    this.guessedCorrectly(this.currentPlayer);
+                if (guess === this.playerOne.getWords()[this.playerTwo.getWordsGuessed()]) {
+                    this.currentPlayer.guessedWordCorrectly();
                     this.swapTurn();
 
                     console.log("Player Two Words Guessed")
-                    console.log(this.playerTwo.wordsGuessed);
+                    console.log(this.playerTwo.getWordsGuessed());
                     console.log(this.numberOfWords);
                 }
 
                 console.clear();
             }
 
-            if(this.playerOne.wordsGuessed === 3) {
+            if(this.playerOne.getWordsGuessed() === 3) {
                 console.log("Player One Has Won!")
-            } else if(this.playerTwo.wordsGuessed === 3) {
+            } else if(this.playerTwo.getWordsGuessed() === 3) {
                 console.log("Player Two Has Won!")
             }
         }
@@ -114,14 +114,6 @@ export class Game {
             this.currentPlayer = this.playerTwo;
         } else {
             this.currentPlayer = this.playerOne;
-        }
-    }
-
-    guessedCorrectly(player: Player) {
-        if(player === this.playerOne) {
-            this.playerOne.wordsGuessed++;
-        } else {
-            this.playerTwo.wordsGuessed++;
         }
     }
 }

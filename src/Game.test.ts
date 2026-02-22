@@ -3,6 +3,12 @@ import {Player} from "./Player.ts";
 
 let game: Game;
 
+jest.mock("./Player.ts");
+
+beforeEach(() => {
+    jest.resetAllMocks();
+});
+
 describe("Player", () => {
     jest.mock("./Player.ts");
 
@@ -51,17 +57,4 @@ test("If current player is one, current player will be changed to two.", () => {
     game.swapTurn();
 
     expect(game.currentPlayer === game.playerTwo);
-});
-
-
-// TODO: Requires actual implementation
-test("If player one guesses correctly, their words guessed should increment", () => {
-    jest.requireActual("./Player.ts");
-    let difficulty: GameDifficulty = "EASY";
-    game = new Game(difficulty);
-
-    let currentCount = game.currentPlayer.wordsGuessed;
-    game.guessedCorrectly(game.currentPlayer);
-
-    expect(currentCount).toBe(game.currentPlayer.wordsGuessed - 1);
 });
