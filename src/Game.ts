@@ -25,35 +25,7 @@ export class Game {
 
     numberOfWords: number;
 
-    setWords() {
-        console.log("-- Player One --")
-
-        this.playerOne.setHintWord(prompt("Hint word: "));
-
-        console.log("--");
-
-        for(let i = 0; i < this.numberOfWords; i++) {
-            this.playerOne.addWord(prompt(`Enter word #${i + 1}: `));
-        }
-
-        console.clear();
-
-        console.log("-- Player Two --")
-
-        this.playerTwo.setHintWord(prompt("Hint word: "));
-
-        console.log("--");
-
-        for(let i = 0; i < this.numberOfWords; i++) {
-            this.playerTwo.addWord(prompt(`Enter word #${i + 1}: `));
-        }
-
-        console.clear();
-    }
-
     startGame() {
-        this.setWords();
-
         while(!this.gameOver()) {
 
             let playerWords: string[];
@@ -110,8 +82,8 @@ export class Game {
   }
 
   gameOver() {
-    return this.playerOne.getWordsGuessed() === 3 ||
-            this.playerTwo.getWordsGuessed() === 3;
+    return this.playerOne.getWordsGuessed() === this.numberOfWords ||
+            this.playerTwo.getWordsGuessed() === this.numberOfWords;
   }
 
   getOponent(): Player {

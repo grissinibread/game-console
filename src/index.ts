@@ -1,4 +1,5 @@
 import { Game } from "./Game.ts";
+import { Player } from "./Player.ts";
 import PromptSync from "prompt-sync";
 
 console.clear();
@@ -20,5 +21,29 @@ if(gameDifficulty === "1") {
 } else {
     game = new Game("HARD");
 }
+
+console.log("-- Player One --");
+
+game.currentPlayer.setHintWord(prompt("Hint word: "));
+
+console.log("--");
+
+for(let i = 0; i < game.numberOfWords; i++) {
+  game.currentPlayer.addWord(prompt(`Enter word #${i + 1}: `));
+}
+
+console.clear();
+
+console.log("-- Player Two --")
+
+game.getOponent().setHintWord(prompt("Hint word: "));
+
+console.log("--");
+
+for(let i = 0; i < game.numberOfWords; i++) {
+  game.getOponent().addWord(prompt(`Enter word #${i + 1}: `));
+}
+
+console.clear();
 
 game.startGame();
