@@ -54,7 +54,7 @@ test("If current player is one, current player will be changed to two.", () => {
     let difficulty: GameDifficulty = "EASY";
     game = new Game(difficulty);
 
-    game.swapTurn();
+    game.getOponent();
 
     expect(game.currentPlayer === game.playerTwo);
 });
