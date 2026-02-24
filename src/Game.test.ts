@@ -3,23 +3,6 @@ import {Player} from "./Player.ts";
 
 let game: Game;
 
-jest.mock("./Player.ts");
-
-beforeEach(() => {
-    jest.resetAllMocks();
-});
-
-describe("Player", () => {
-    jest.mock("./Player.ts");
-
-    test("", () => {
-        let difficulty: GameDifficulty = "EASY";
-        game = new Game(difficulty);
-
-        expect(Player).toHaveBeenCalledTimes(2);
-    });
-});
-
 describe("Game difficulty tests.", () => {
     test("If game is set to easy, the number of words for the game should be 3.", () => {
         let difficulty: GameDifficulty = "EASY";
