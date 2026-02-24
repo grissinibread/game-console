@@ -36,12 +36,12 @@ console.clear();
 
 console.log("-- Player Two --")
 
-game.getOponent().setHintWord(prompt("Hint word: "));
+game.getOpponent().setHintWord(prompt("Hint word: "));
 
 console.log("--");
 
 for(let i = 0; i < game.numberOfWords; i++) {
-  game.getOponent().addWord(prompt(`Enter word #${i + 1}: `));
+  game.getOpponent().addWord(prompt(`Enter word #${i + 1}: `));
 }
 
 console.clear();

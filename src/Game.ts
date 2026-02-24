@@ -53,7 +53,7 @@ export class Game {
             if(this.currentPlayer === this.playerOne) {
                 if (guess === this.playerTwo.getWords()[this.playerOne.getWordsGuessed()]) {
                     this.currentPlayer.guessedWordCorrectly();
-                    this.currentPlayer = this.getOponent();
+                    this.swapTurn();
 
                     console.log("Player One Words Guessed")
                     console.log(this.playerOne.getWordsGuessed());
@@ -62,7 +62,7 @@ export class Game {
             } else if(this.currentPlayer === this.playerTwo) {
                 if (guess === this.playerOne.getWords()[this.playerTwo.getWordsGuessed()]) {
                     this.currentPlayer.guessedWordCorrectly();
-                    this.currentPlayer = this.getOponent();
+                    this.swapTurn();
 
                     console.log("Player Two Words Guessed")
                     console.log(this.playerTwo.getWordsGuessed());
@@ -81,13 +81,28 @@ export class Game {
       this.playerOne : this.playerOne;
   }
 
-  gameOver() {
+  gameOver(): boolean {
     return this.playerOne.getWordsGuessed() === this.numberOfWords ||
             this.playerTwo.getWordsGuessed() === this.numberOfWords;
   }
 
-  getOponent(): Player {
+  getOpponent(): Player {
     return this.currentPlayer === this.playerOne
             ? this.playerTwo : this.playerOne;
   }
+
+    swapTurn(): void {
+        this.currentPlayer = this.getOpponent();
+    }
+
+    guess(word: string): void {
+        let player: Player = this.currentPlayer;
+        let opponent: Player = this.getOpponent();
+
+        let wordsGuessed: number = player.getWordsGuessed();
+
+        if(word === opponent.getWords()[wordsGuessed]) {
+            player.guessedWordCorrectly();
+        }
+    }
 }
