@@ -2,7 +2,7 @@ import { Player } from "./Player.ts";
 import PromptSync from "prompt-sync";
 
 export class Game {
-  constructor(gameDifficulty: number, playerOne: Player, playerTwo: Player) {
+  constructor(gameDifficulty: string, playerOne: Player, playerTwo: Player) {
     if(gameDifficulty === "1") {
       this.numberOfWords = 3;
     } else if(gameDifficulty === "2") {
