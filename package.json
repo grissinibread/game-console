@@ -29,7 +29,8 @@
     "@types/prompt-sync": "^4.2.3",
     "babel-jest": "^29.7.0",
     "ts-jest": "^29.4.6",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vite": "^7.3.1"
   },
   "private": true,
   "dependencies": {
