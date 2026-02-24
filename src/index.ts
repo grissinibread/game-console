@@ -5,6 +5,7 @@ import PromptSync from "prompt-sync";
 console.clear();
 
 let prompt = PromptSync();
+
 console.log("Turn Based Game");
 console.log("Select Difficulty");
 console.log("(1) Easy");
@@ -14,15 +15,8 @@ let gameDifficulty = prompt("");
 
 let playerOne: Player = new Player();
 let playerTwo: Player = new Player();
-let game: Game;
 
-if(gameDifficulty === "1") {
-    game = new Game("EASY", playerOne, playerTwo);
-} else if(gameDifficulty === "2") {
-    game = new Game("NORMAL", playerOne,  playerTwo);
-} else {
-    game = new Game("HARD", playerOne, playerTwo);
-}
+let game: Game = new Game(gameDifficulty, playerOne, playerTwo);
 
 console.log("-- Player One --");
 

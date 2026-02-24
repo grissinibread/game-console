@@ -1,20 +1,16 @@
 import { Player } from "./Player.ts";
 import PromptSync from "prompt-sync";
 
-export type GameDifficulty = "EASY" | "NORMAL" | "HARD";
-let prompt = PromptSync();
-
 export class Game {
-  constructor(gameDifficulty: GameDifficulty, playerOne: Player, playerTwo: Player) {
-    if(gameDifficulty === "EASY") {
+  constructor(gameDifficulty: number, playerOne: Player, playerTwo: Player) {
+    if(gameDifficulty === "1") {
       this.numberOfWords = 3;
-    } else if(gameDifficulty === "NORMAL") {
+    } else if(gameDifficulty === "2") {
       this.numberOfWords = 5;
     } else {
       this.numberOfWords = 7;
     }
 
-    this.gameDifficulty = gameDifficulty;
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
 
@@ -23,9 +19,8 @@ export class Game {
 
     playerOne: Player;
     playerTwo: Player;
-    currentPlayer: Player;
 
-    gameDifficulty: GameDifficulty;
+    currentPlayer: Player;
 
     numberOfWords: number;
 
@@ -34,22 +29,22 @@ export class Game {
       this.playerOne : this.playerOne;
   }
 
-  gameOver(): boolean {
-    return this.playerOne.getWordsGuessed() === this.numberOfWords ||
-            this.playerTwo.getWordsGuessed() === this.numberOfWords;
-  }
-
   getCurrentPlayer(): Player {
     return this.currentPlayer;
   }
 
   getOpponent(): Player {
     return this.currentPlayer === this.playerOne
-            ? this.playerTwo : this.playerOne;
+      ? this.playerTwo : this.playerOne;
   }
 
   getNumberOfWords(): number {
     return this.numberOfWords;
+  }
+
+  gameOver(): boolean {
+    return this.playerOne.getWordsGuessed() === this.numberOfWords ||
+      this.playerTwo.getWordsGuessed() === this.numberOfWords;
   }
 
   swapTurn(): void {
