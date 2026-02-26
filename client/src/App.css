@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom CSS */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.wordInput {
+  margin: 5px;
+  padding: 5px;
+}

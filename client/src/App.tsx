@@ -1,24 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
-import difficultySelection from './pages/DifficultySelection'
+// import difficultySelectionPage from "./pages/DifficultySelectionPage.tsx";
+import wordInputPage from "./pages/WordInputPage.tsx";
 
 function App() {
   return (
-    <>
-      game-console-web
-      <div>
-        <button>
-          Start Game
-        </button>
-
-        <button>
-          Join Game
-        </button>
-      </div>
-    </>
+      wordInputPage()
   )
 }
 
