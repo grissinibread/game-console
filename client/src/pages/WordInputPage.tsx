@@ -1,4 +1,4 @@
-function wordInputPage() {
+function WordInputPage() {
   return (
       <>
         <div>
@@ -25,4 +25,4 @@ function wordInputPage() {
   );
 }
 
-export default wordInputPage;
+export default WordInputPage;

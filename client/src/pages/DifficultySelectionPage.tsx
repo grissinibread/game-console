@@ -1,4 +1,4 @@
-function difficultySelectionPage() {
+function DifficultySelectionPage() {
   return (
     <>
       <h2>Select Difficulty</h2>
@@ -12,4 +12,4 @@ function difficultySelectionPage() {
   );
 }
 
-export default difficultySelectionPage;
+export default DifficultySelectionPage;

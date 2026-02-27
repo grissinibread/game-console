@@ -1,4 +1,4 @@
-function wordGuessPage() {
+function WordGuessPage() {
     return (
         <>
             <div>
@@ -67,4 +67,4 @@ function wordGuessPage() {
     );
 }
 
-export default wordGuessPage();
+export default WordGuessPage;
