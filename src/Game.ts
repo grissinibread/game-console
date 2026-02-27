@@ -1,5 +1,4 @@
 import { Player } from "./Player.ts";
-import PromptSync from "prompt-sync";
 
 export class Game {
   constructor(gameDifficulty: string, playerOne: Player, playerTwo: Player) {

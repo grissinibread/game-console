@@ -34,14 +34,14 @@ describe("Game difficulty tests.", () => {
 });
 
 test("If current player is two, current player will be changed to one.", () => {
-    let difficulty: GameDifficulty = "1";
+    let difficulty: string = "1";
     game = new Game(difficulty, playerOne, playerTwo);
 
     expect(game.currentPlayer === game.playerTwo);
 });
 
 test("If current player is one, current player will be changed to two.", () => {
-    let difficulty: GameDifficulty = "1";
+    let difficulty: string = "1";
     game = new Game(difficulty, playerOne, playerTwo);
 
     game.getOpponent();
