@@ -1,10 +1,10 @@
 import './App.css'
 // import difficultySelectionPage from "./pages/DifficultySelectionPage.tsx";
-import wordInputPage from "./pages/WordInputPage.tsx";
+import wordGuessPage from "./pages/WordGuessPage.tsx";
 
 function App() {
   return (
-      wordInputPage()
+      wordGuessPage
   )
 }
 

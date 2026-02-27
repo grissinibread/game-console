@@ -49,5 +49,5 @@
 
 .wordInput {
   margin: 5px;
-  padding: 5px;
+  padding: 5px 7px; /* This padding along with a text input size of 1 makes a square*/
 }
