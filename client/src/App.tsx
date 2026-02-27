@@ -1,11 +1,14 @@
 import './App.css'
 // import difficultySelectionPage from "./pages/DifficultySelectionPage.tsx";
-import wordGuessPage from "./pages/WordGuessPage.tsx";
+import {BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
-      wordGuessPage
-  )
+      <BrowserRouter>
+        <Route></Route>
+        <Route></Route>
+      </BrowserRouter>
+  );
 }
 
 export default App
