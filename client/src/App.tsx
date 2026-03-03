@@ -5,6 +5,9 @@ import WordInputPage from './pages/WordInputPage.tsx';
 import WordGuessPage from './pages/WordGuessPage.tsx';
 import {Routes, Route } from "react-router";
 
+import { Game } from "./logic/Game.ts";
+import { Player } from './logic/Player.ts';
+
 function App() {
   return (
     <Routes>
