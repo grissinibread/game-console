@@ -60,8 +60,6 @@ function WordGuessPage() {
                         <input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={1} size={1}/>
                     </div>
                 </div>
-
-                <button>Lock In</button>
             </div>
         </>
     );
