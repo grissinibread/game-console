@@ -1,12 +1,16 @@
 import { useState } from 'react';
 
-function DifficultySelectionPage() {
+import { Game } from '../logic/Game';
+import type { GameState } from '../App';
+
+function DifficultySelectionPage(props: { game: GameState }) {
   const [difficulty, enable] = useState<string | null>(null);
+  const { game } = props;
 
   function setDifficulty(difficulty: string) {
     enable(difficulty);
 
-    return difficulty;
+    game.game = new Game(difficulty, game.playerOne, game.playerTwo);
   }
 
   return (

@@ -8,11 +8,25 @@ import {Routes, Route } from "react-router";
 import { Game } from "./logic/Game.ts";
 import { Player } from './logic/Player.ts';
 
+export type GameState = {
+  playerOne: Player;
+  playerTwo: Player;
+  
+  game: Game | null;
+}
+
 function App() {
+  let gameState: GameState = {
+    playerOne: new Player(),
+    playerTwo: new Player(),
+
+    game: null,
+  };
+
   return (
     <Routes>
       <Route path='/' element={<FrontPage />}/>
-      <Route path='/difficulty' element={<DifficultySelectionPage />}/>
+      <Route path='/difficulty' element={<DifficultySelectionPage game={gameState}/>}/>
       <Route path='/wordInput' element={<WordInputPage />}/>
       <Route path='/wordGuess' element={<WordGuessPage />}/>
     </Routes>
