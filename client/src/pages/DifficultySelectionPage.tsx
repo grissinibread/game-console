@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Game } from '../logic/Game';
-import type { GameState } from '../App';
+import type { GameState } from '../GameState.ts';
 
 function DifficultySelectionPage(props: { game: GameState }) {
   const [difficulty, enable] = useState<string | null>(null);

@@ -5,15 +5,8 @@ import WordInputPage from './pages/WordInputPage.tsx';
 import WordGuessPage from './pages/WordGuessPage.tsx';
 import {Routes, Route } from "react-router";
 
-import { Game } from "./logic/Game.ts";
+import type { GameState } from './GameState.ts';
 import { Player } from './logic/Player.ts';
-
-export type GameState = {
-  playerOne: Player;
-  playerTwo: Player;
-  
-  game: Game | null;
-}
 
 function App() {
   let gameState: GameState = {
