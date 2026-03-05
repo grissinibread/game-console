@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from 'react';
 
 import { Game } from '../logic/Game';
@@ -26,10 +27,12 @@ function DifficultySelectionPage(props: { game: GameState }) {
 
         <input id="hard" type="radio" name="difficulty" onClick={() => setDifficulty("hard")}/>
         <label htmlFor="hard">Hard</label>
-      </div> 
+      </div>
 
+        <Link to="/wordInput">
       <input id="createGameButton" type="button" disabled={!difficulty} onClick={() => alert(difficulty)}/>
       <label htmlFor="createGameButton">Create Game</label>
+        </Link>
     </>
   );
 }
