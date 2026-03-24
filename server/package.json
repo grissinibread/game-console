@@ -4,20 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	  "start": "node dist/server.js",
-	  "build": "tsc -p .",
-	  "dev": "nodemon src/server.ts"
+    "start": "node dist/index.js",
+    "build": "tsc -p .",
+    "dev": "nodemon index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1"
+    "ws": "^8.20.0"
   },
   "devDependencies": {
-    "@types/express": "^5.0.6",
     "@types/node": "^25.5.0",
+    "@types/ws": "^8.18.1",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
