@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, Flex, Text, VStack } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 function DifficultySelectionPage() {
   const [difficulty, setDifficulty] = useState<string | null>(null);
@@ -18,7 +19,9 @@ function DifficultySelectionPage() {
         <Button variant={difficulty === 'hard' ? 'outline' : 'solid'} onClick={() => updateGame("hard")}>Hard</Button>
       </VStack>
 
-      <Button mt={4} >Create Game</Button>
+      <Link to='/wordInput'>
+        <Button mt={4}>Create Game</Button>
+      </Link>
     </Flex>
   );
 }

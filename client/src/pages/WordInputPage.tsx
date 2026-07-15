@@ -1,28 +1,21 @@
+import { Button, Flex, Input, Text } from "@chakra-ui/react";
+
 function WordInputPage() {
-	return (
-		<>
-			<div>
-				<h3>Starter Word</h3>
-				<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-			</div>
+  let difficulty = [1, 2, 3, 4, 5, 6, 7];
 
-			<div>
-				<h3>Guess Words</h3>
+  return (
+    <Flex direction="column" height="100vh" align="center" justify="center" m={4}>
+      <Text>Starter Word</Text>
+      <Input m={4} maxWidth='lg'/>
 
-				<div className={"stack"}>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-					<input className={"wordInput"} name={"wordInput"} type={"text"} maxLength={5}/>
-				</div>
+      <Text>Guess Words</Text>
+      {difficulty.map((d) => (
+        <Input key={d} mt={4} maxWidth='lg'/>
+      ))}
 
-				<button>Lock In</button>
-			</div>
-		</>
-	);
+      <Button mt={4}>Lock In</Button>
+    </Flex>
+  );
 }
 
 export default WordInputPage;
