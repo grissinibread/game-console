@@ -1,16 +1,14 @@
+import { Button, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 function FrontPage() {
   return (
-    <>
-      game-console-web
-      <div>
-        <Link to="/difficulty">
-          <button>Start Game</button>
-        </Link>
-        <button>Join Game</button>
-      </div>
-    </>
+    <VStack>
+      <Link to="/difficulty">
+        <Button color={"white"}>Start Game</Button>
+      </Link>
+      <Button color={"white"}>Join Game</Button>
+    </VStack>
   );
 }
 
