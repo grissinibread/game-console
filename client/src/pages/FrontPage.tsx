@@ -1,14 +1,16 @@
-import { Button, VStack } from "@chakra-ui/react";
+import { Button, Center, Flex, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 function FrontPage() {
   return (
-    <VStack>
-      <Link to="/difficulty">
-        <Button color={"white"}>Start Game</Button>
-      </Link>
-      <Button color={"white"}>Join Game</Button>
-    </VStack>
+    <Flex align='center' justify='center' height='100vh'>
+      <VStack>
+        <Link to="/difficulty">
+          <Button>Start Game</Button>
+        </Link>
+        <Button>Join Game</Button>
+      </VStack>
+    </Flex>
   );
 }
 
