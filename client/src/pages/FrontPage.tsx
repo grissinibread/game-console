@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 
 function FrontPage() {
   return (
-    <Flex align='center' justify='center' height='100vh'>
-      <VStack>
+    <Flex align='center' justify='center' height='100vh' direction='column' gap={4}>
         <Link to="/difficulty">
           <Button>Start Game</Button>
         </Link>
         <Button>Join Game</Button>
-      </VStack>
     </Flex>
   );
 }

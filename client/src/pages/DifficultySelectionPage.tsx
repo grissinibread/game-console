@@ -1,50 +1,25 @@
 import { useState } from 'react';
+import { Button, Flex, Text, VStack } from '@chakra-ui/react';
 
-import { Game } from '../logic/Game';
-import { Player } from '../logic/Player';
+function DifficultySelectionPage() {
+  const [difficulty, setDifficulty] = useState<string | null>(null);
 
-let socket: WebSocket;
-
-function DifficultySelectionPage( game: Game, playerOne: Player, playerTwo: Player ) {
-  const [difficulty, enable] = useState<string | null>(null);
-
-  function setDifficulty(difficulty: string) {
-    enable(difficulty);
-
-    game = new Game(difficulty, playerOne, playerTwo);
+  const updateGame = (difficulty: string) => {
+    setDifficulty(difficulty);
   }
 
   return (
-    <>
-      <h2>Select Difficulty</h2>
+    <Flex height='100vh' align='center' justify='center' direction='column'>
+      <Text>Select Difficulty</Text>
 
-      <div className="stack">
-        <input id="easy" type="radio" name="difficulty" onClick={() => setDifficulty("easy")}/>
-        <label htmlFor="easy">Easy</label>
+      <VStack className="stack" mt={4}>
+        <Button variant={difficulty === 'easy' ? 'outline' : 'solid'} onClick={() => updateGame("easy")}>Easy</Button>
+        <Button variant={difficulty === 'normal' ? 'outline' : 'solid'} onClick={() => updateGame("normal")}>Normal</Button>
+        <Button variant={difficulty === 'hard' ? 'outline' : 'solid'} onClick={() => updateGame("hard")}>Hard</Button>
+      </VStack>
 
-        <input id="normal" type="radio" name="difficulty" onClick={() => setDifficulty("normal")}/>
-        <label htmlFor="normal">Normal</label>
-
-        <input id="hard" type="radio" name="difficulty" onClick={() => setDifficulty("hard")}/>
-        <label htmlFor="hard">Hard</label>
-      </div> 
-
-      <input id="createGameButton" type="button" disabled={!difficulty} onClick={ async() => {
-        socket = new WebSocket('ws://localhost:8080');
-
-        socket.onopen = () => {
-          console.log('Conected!');
-          
-          socket.send('hello');
-        };
-
-        socket.onmessage = ({data}) => {
-          console.log('Message from server', data);
-        };
-
-      }}/>
-      <label htmlFor="createGameButton">Create Game</label>
-    </>
+      <Button mt={4} >Create Game</Button>
+    </Flex>
   );
 }
 
