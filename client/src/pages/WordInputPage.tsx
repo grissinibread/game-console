@@ -1,6 +1,8 @@
 import { Button, Flex, Input, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 function WordInputPage() {
+  const navigate = useNavigate();
   let difficulty = [1, 2, 3, 4, 5, 6, 7];
 
   return (
@@ -13,7 +15,7 @@ function WordInputPage() {
         <Input key={d} mt={4} maxWidth='lg'/>
       ))}
 
-      <Button mt={4}>Lock In</Button>
+      <Button mt={4} onClick={() => navigate('/wordGuess')}>Lock In</Button>
     </Flex>
   );
 }
