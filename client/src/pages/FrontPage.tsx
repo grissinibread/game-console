@@ -1,10 +1,16 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-function FrontPage() {
+interface Props {
+  setServer: (server: WebSocket) => void;
+}
+
+function FrontPage({setServer}: Props) {
   const createConnection = async () => {
     const wsUri = "ws://localhost:8080";
     const ws = new WebSocket(wsUri);
+
+    setServer(ws);
 
     ws.addEventListener("open", () => {
       ws.send("ma mama");

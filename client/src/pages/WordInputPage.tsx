@@ -1,7 +1,11 @@
 import { Button, Flex, Input, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-function WordInputPage() {
+interface Props {
+  server: WebSocket | null
+}
+
+function WordInputPage({server}: Props) {
   const navigate = useNavigate();
   let difficulty = [1, 2, 3, 4, 5, 6, 7];
 

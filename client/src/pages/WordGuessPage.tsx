@@ -1,6 +1,10 @@
 import { Box, Flex, Input, Text } from "@chakra-ui/react";
 
-function WordGuessPage() {
+interface Props {
+  server: WebSocket | null
+}
+
+function WordGuessPage({server}: Props) {
   let temp = [1, 2, 3, 4, 5, 6, 7];
   let temp2 = [1, 2, 3, 4, 5];
 

@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-function DifficultySelectionPage() {
+interface Props {
+  server: WebSocket | null
+}
+
+function DifficultySelectionPage({server}: Props) {
   const [difficulty, setDifficulty] = useState<string | null>(null);
 
   const updateGame = (difficulty: string) => {
