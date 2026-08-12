@@ -8,13 +8,26 @@ import { useState } from "react";
 
 function App() {
   const [server, setServer] = useState<WebSocket | null>(null);
+  const [numOfWords, setNumOfWords] = useState(0);
+
+  server?.addEventListener("message", () => {
+    server.onmessage = (message) => {
+      setNumOfWords(parseInt(message.data))
+    };
+  });
 
   return (
     <Routes>
-      <Route path="/" element={<FrontPage setServer={setServer}/>} />
-      <Route path="/difficulty" element={<DifficultySelectionPage server={server}/>} />
-      <Route path="/wordInput" element={<WordInputPage server={server}/>} />
-      <Route path="/wordGuess" element={<WordGuessPage server={server}/>} />
+      <Route path="/" element={<FrontPage setServer={setServer} />} />
+      <Route
+        path="/difficulty"
+        element={<DifficultySelectionPage server={server} />}
+      />
+      <Route
+        path="/wordInput"
+        element={<WordInputPage numOfWords={numOfWords} />}
+      />
+      <Route path="/wordGuess" element={<WordGuessPage server={server} />} />
     </Routes>
   );
 }

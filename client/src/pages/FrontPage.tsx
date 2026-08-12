@@ -8,17 +8,7 @@ interface Props {
 function FrontPage({setServer}: Props) {
   const createConnection = async () => {
     const wsUri = "ws://localhost:8080";
-    const ws = new WebSocket(wsUri);
-
-    setServer(ws);
-
-    ws.addEventListener("open", () => {
-      ws.send("ma mama");
-
-      ws.onmessage = (message) => {
-        console.log(message.data);
-      };
-    });
+    setServer(new WebSocket(wsUri));
   };
 
   return (
